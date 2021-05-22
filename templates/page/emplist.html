@@ -1,0 +1,69 @@
+{% extends 'home.html' %}
+{% block content %}
+<div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="static\images\rer.jpg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>IKC</h4>
+              <span>Project</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main">
+                <li><a href="{% url 'front' %}">Home</a></li>
+                <li><a href="{% url 'index' %}">accused-List</a></li>
+                <li><a href="{% url 'cardacc' %}">accused card</a></li>
+                <li><a href="{% url 'emplist' %}">Emolyes-List</a></li>
+                <li><a href="{% url 'cardemp' %}">Emolyes card</a></li>
+                <li><a href="{% url 'admin/' %}">Admin</a></li> 
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="section about-me" data-section="section1">
+    
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+
+								<th class="column100 column2" data-column="column2">name employ</th>
+								<th class="column100 column3" data-column="column3">job name</th>
+								<th class="column100 column4" data-column="column4">age employ</th>
+								<th class="column100 column6" data-column="column6">Salary employees</th>
+								<th class="column100 column7" data-column="column7">address employ</th>
+							</tr>
+						</thead>
+                        {% for i in emplist %}
+						<tbody>
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1">{{i.name_employee}}</td>
+								<td class="column100 column2" data-column="column2">{{i.job_name}}</td>
+								<td class="column100 column3" data-column="column3">{{i.age_employees}}</td>
+								<td class="column100 column4" data-column="column4">{{i.Salary_employees}}</td>
+								<td class="column100 column5" data-column="column5">{{i.address_employees}}</td>
+                            </tr>
+						</tbody>
+                                                {% endfor %}
+					</table>
+				</div>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+      </section>
+    </div>
+{% endblock content %}

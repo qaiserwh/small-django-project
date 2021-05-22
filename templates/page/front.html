@@ -1,0 +1,75 @@
+{% extends 'home.html' %}
+{% block content %}
+<div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="static\images\rer.jpg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>IKC</h4>
+              <span>Project</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main">
+                <li><a href="{% url 'front' %}">Home</a></li>
+                <li><a href="{% url 'index' %}">accused-List</a></li>
+                <li><a href="{% url 'cardacc' %}">accused card</a></li>
+                <li><a href="{% url 'emplist' %}">Emolyes-List</a></li>
+                <li><a href="{% url 'cardemp' %}">Emolyes card</a></li>
+                <li><a href="{% url 'admin/' %}">Admin</a></li>               
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+          
+            <h2>Reportes</h2>
+            <div class="line"></div>
+            <span></span>
+          
+          </div>
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image">
+                 
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="right-text">
+        
+                 
+                  <p>	</p>                 
+                </div>
+              </div>
+              <div class="card shadow mb-4">
+               {% for i in front %}
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                </div>
+               
+                <div class="card-body">
+                  <p class="m-0 font-weight-bold text-dark">{{i.write}}</p>
+                  {% if i.photo_index %}
+                   <img src="{{i.photo_index.url}}" alt="" />
+                   {% endif %}
+                   {% endfor %}
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+        
+      </section>
+    </div>
+{% endblock content %}

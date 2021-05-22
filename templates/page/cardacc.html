@@ -1,0 +1,57 @@
+{% extends 'home.html' %}
+{% block content %}
+<div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="static\images\rer.jpg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>IKC</h4>
+              <span>Project</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main">
+                <li><a href="{% url 'front' %}">Home</a></li>
+                <li><a href="{% url 'index' %}">accused-List</a></li>
+                <li><a href="{% url 'cardacc' %}">accused card</a></li>
+                <li><a href="{% url 'emplist' %}">Emolyes-List</a></li>
+                <li><a href="{% url 'cardemp' %}">Emolyes card</a></li>
+                <li><a href="{% url 'admin/' %}">Admin</a></li> 
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="section about-me" data-section="section1">
+        <div class="row100">
+        {% for i in rar %}
+              <div class="col-xl-5 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                   <a><img class="card-img-top" src="{{i.photo_accused.url}}" alt="Card image" ></a>
+                   <li class="btn btn-info"><strong>name:</strong>{{i.name_accused}}</li><br>
+                   <li class="btn btn-danger"><strong>condemnation:</strong>{{i.condemnation_accused}}</li><br>
+                   <li class="btn btn-danger"><strong>felony:</strong>{{i.felony_accused}}</li><br>
+                   <li class="btn btn-danger"><strong>age:</strong>{{i.age_accused}}</li><br>
+                   <li class="btn btn-danger"><strong>address:</strong>{{i.address_accused}}</li><br>
+                   <a href="{% url 'index' %}" class="btn btn-info">Go Home</a>
+                 </div>
+              </div>
+            </div>
+           {% endfor %}
+          </div> 
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+      </section>
+    </div>
+{% endblock content %}
